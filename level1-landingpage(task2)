@@ -1,0 +1,171 @@
+HTML CODE
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            padding-right: 20px;
+            padding: 20px;
+        }
+        nav {
+            display: flex;
+            background-color: rgb(102, 102, 233);
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        nav img {
+            height: 50px;
+            width: auto;
+        }
+        nav a {
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgb(71, 193, 71);
+            color: white;
+            border-color: green;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(71, 199, 16);
+            color: blue;
+        }
+        .hero {
+            padding: 100px 20px;
+            color: white;
+            background-image: url("image.jpg");
+            background-size: cover;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 60px;
+            font-weight: bold;
+            animation: slideIn 2s ease-in-out;
+        }
+        .hero p {
+            font-size: 18px;
+            color: beige;
+            animation: slideIn 2s ease-in-out;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            padding: 15px 25px;
+            font-size: 16px;
+        }
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        .count-animation {
+            animation: countUp 2s ease-in-out;
+        }
+        @keyframes countUp {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .search-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: rgb(230, 230, 255);
+        }
+        select, input[type="button"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        input[type="button"] {
+            background-color: rgb(71, 193, 71);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: green;
+            color: aliceblue;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <img src="https://tse4.mm.bing.net/th?id=OIP.cUDsFklhEMMVOj95byVVQAHaHa&pid=Api&P=0&h=180" alt="Logo">
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Browse Jobs</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+            <button>Post a Job</button>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <h1>Find Your Dream Job</h1>
+        <p>We help you discover the perfect career opportunities with ease and speed.</p>
+        <button>Upload Your Resume</button>
+    </div>
+
+    <div class="search-bar">
+        <select>
+            <option>Search Keyword</option>
+            <option>Web Developer</option>
+            <option>Machine Learning</option>
+            <option>AI</option>
+        </select>
+        <select>
+            <option>Location</option>
+            <option>New York</option>
+            <option>San Francisco</option>
+            <option>Remote</option>
+        </select>
+        <select>
+            <option>Category</option>
+            <option>Web Development</option>
+            <option>Data Science</option>
+            <option>AI & ML</option>
+        </select>
+        <input type="button" value="Find Jobs">
+    </div>
+
+    <script>
+        window.onload = function() {
+            var jobCountElement = document.querySelector('.count-animation');
+            var jobCount = 0;
+            var targetCount = 1500;
+
+            function updateCount() {
+                jobCountElement.innerHTML = "+" + jobCount + " Jobs listed";
+                jobCount++;
+                if (jobCount <= targetCount) {
+                    setTimeout(updateCount, 10);
+                }
+            }
+            updateCount();
+        };
+    </script>
+</body>
+</html>
